@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <div className={css.container}>
-      <h1>PhoneBook (Vite + React)</h1>
+      <h1>PhoneBook - Home Work#6 (Vite + React)</h1>
       <ContactForm addContact={addContact} />
       <SearchBox value={findContact} onFindContact={setFindContact} />
       <ContactList contactsData={visibleContacts} onDelete={deleteContact} />
