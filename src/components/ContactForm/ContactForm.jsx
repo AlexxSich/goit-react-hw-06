@@ -3,6 +3,8 @@ import { nanoid } from 'nanoid';
 import * as yup from 'yup';
 
 import css from './ContactForm.module.css';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contactsSlice';
 
 const phoneRegExp = '[0-9]{3}-[0-9]{2}-[0-9]{2}';
 
@@ -21,9 +23,11 @@ const ContactSchema = yup.object().shape({
     .required('Phone number is required'),
 });
 
-export default function ContactForm({ addContact }) {
+export default function ContactForm() {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
-    addContact({ ...values, id: nanoid() });
+    dispatch(addContact({ ...values, id: nanoid() }));
     actions.resetForm();
   };
 
